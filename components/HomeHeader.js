@@ -47,22 +47,22 @@ const HomeHeader = ({ onSearch }) => {
       <View style={{ marginVertical: SIZES.font }}>
         <Text
           style={{
-            fontFamily: FONTS.regular,
-            fontSize: SIZES.small,
-            color: COLORS.white,
-          }}
-        >
-          Hello, Victoria 👋🏻
-        </Text>
-        <Text
-          style={{
             fontFamily: FONTS.bold,
             fontSize: SIZES.large,
             color: COLORS.white,
             marginTop: SIZES.base / 2,
           }}
         >
-          Let's find a masterpiece
+          Hi Samarth 👋🏻
+        </Text>
+        <Text
+          style={{
+            fontFamily: FONTS.regular,
+            fontSize: SIZES.small,
+            color: COLORS.white,
+          }}
+        >
+          Let's Find a Masterpiece
         </Text>
       </View>
 
@@ -90,7 +90,7 @@ const HomeHeader = ({ onSearch }) => {
           <TextInput
             placeholder="Search NFT's"
             style={{ flex: 1 }}
-            onChange={onSearch}
+            onChangeText={onSearch}
           />
         </View>
       </View>

@@ -6,7 +6,7 @@ import {
   StatusBar,
   FlatList,
 } from "react-native";
-
+import React from "react";
 import { COLORS, SIZES, FONTS, SHADOWS, assets } from "../constants";
 import {
   CircleButton,
@@ -44,7 +44,7 @@ const Details = ({ route, navigation }) => {
   const { data } = route.params;
 
   console.log("----------------------");
-  console.log("data from prev screen => ", data);
+  console.log("data from prev screen => ", data.bids);
   console.log("----------------------");
 
   return (
@@ -72,17 +72,17 @@ const Details = ({ route, navigation }) => {
 
       <FlatList
         data={data.bids}
-        renderItem={({ item }) => <DetailsBid data={item} />}
+        renderItem={({ item }) => <DetailsBid bid={item} />}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
         ListHeaderComponent={() => (
-          <>
+          <React.Fragment>
             <DetailsHeader data={data} navigation={navigation} />
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
               <DetailsDesc data={data} />
-              {data.bids.length > 0 && (
+              {data.bids.length > -1 && (
                 <Text
                   style={{
                     fontSize: SIZES.font,
@@ -90,11 +90,11 @@ const Details = ({ route, navigation }) => {
                     color: COLORS.primary,
                   }}
                 >
-                  Current Bid
+                  Current Bids
                 </Text>
               )}
             </View>
-          </>
+          </React.Fragment>
         )}
       />
     </SafeAreaView>
