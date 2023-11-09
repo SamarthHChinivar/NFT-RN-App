@@ -6,7 +6,6 @@ import {
   StatusBar,
   FlatList,
 } from "react-native";
-import React from "react";
 import { COLORS, SIZES, FONTS, SHADOWS, assets } from "../constants";
 import {
   CircleButton,
@@ -77,7 +76,7 @@ const Details = ({ route, navigation }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: SIZES.extraLarge * 3 }}
         ListHeaderComponent={() => (
-          <React.Fragment>
+          <>
             <DetailsHeader data={data} navigation={navigation} />
             <SubInfo />
             <View style={{ padding: SIZES.font }}>
@@ -94,7 +93,7 @@ const Details = ({ route, navigation }) => {
                 </Text>
               )}
             </View>
-          </React.Fragment>
+          </>
         )}
       />
     </SafeAreaView>
