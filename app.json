@@ -11,7 +11,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#001F2D"
     },
-    "assetBundlePatterns": ["assets/fonts"],
+    "assetBundlePatterns": [
+      "assets/fonts"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -19,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#001F2D"
-      }
+      },
+      "package": "com.samarthhchinivar.NFTs"
     },
     "web": {
       "favicon": "./assets/icon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "00e20f56-01bd-4b14-8984-7616bb6848ed"
+      }
     }
   }
 }
