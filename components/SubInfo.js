@@ -6,7 +6,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
     <View>
       <Text
         style={{
-          fontFamily: FONTS.semiBold,
+          fontFamily: FONTS.bold,
           fontSize: titleSize,
           color: COLORS.primary,
         }}
@@ -16,7 +16,7 @@ export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
 
       <Text
         style={{
-          fontFamily: FONTS.regular,
+          fontFamily: FONTS.semiBold,
           fontSize: subTitleSize,
           color: COLORS.primary,
         }}
@@ -41,8 +41,8 @@ export const EthPrice = ({ price }) => {
       />
       <Text
         style={{
-          fontFamily: FONTS.medium,
-          fontSize: SIZES.font,
+          fontFamily: FONTS.semiBold,
+          fontSize: SIZES.medium,
           color: COLORS.primary,
         }}
       >
@@ -98,8 +98,8 @@ export const EndDate = () => {
     >
       <Text
         style={{
-          fontFamily: FONTS.regular,
-          fontSize: SIZES.small,
+          fontFamily: FONTS.medium,
+          fontSize: SIZES.font,
           color: COLORS.secondary,
         }}
       >
@@ -108,7 +108,7 @@ export const EndDate = () => {
 
       <Text
         style={{
-          fontFamily: FONTS.semiBold,
+          fontFamily: FONTS.bold,
           fontSize: SIZES.medium,
           color: COLORS.primary,
         }}

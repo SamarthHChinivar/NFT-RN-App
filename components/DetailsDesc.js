@@ -22,7 +22,7 @@ const DetailsDesc = ({ data }) => {
           title={data.name}
           subTitle={data.creator}
           titleSize={SIZES.extraLarge}
-          subTitleSize={SIZES.font}
+          subTitleSize={SIZES.medium}
         />
 
         <EthPrice price={data.price} />
@@ -32,7 +32,7 @@ const DetailsDesc = ({ data }) => {
         <Text
           style={{
             fontFamily: FONTS.semiBold,
-            fontSize: SIZES.font,
+            fontSize: SIZES.medium,
             color: COLORS.primary,
           }}
         >
@@ -43,7 +43,7 @@ const DetailsDesc = ({ data }) => {
           <Text
             style={{
               fontFamily: FONTS.regular,
-              fontSize: SIZES.small,
+              fontSize: SIZES.font,
               color: COLORS.secondary,
               lineHeight: SIZES.large,
             }}

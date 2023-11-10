@@ -84,8 +84,8 @@ const Details = ({ route, navigation }) => {
               {data.bids.length > -1 && (
                 <Text
                   style={{
-                    fontSize: SIZES.font,
                     fontFamily: FONTS.semiBold,
+                    fontSize: SIZES.medium,
                     color: COLORS.primary,
                   }}
                 >

@@ -1,6 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 import Home from "./screens/Home";
 import Details from "./screens/Details";
@@ -25,7 +26,7 @@ const App = () => {
     InterLight: require("./assets/fonts/Inter-Light.ttf"),
   });
 
-  if (!loaded) return null;
+  if (!loaded) return <AppLoading />;
 
   return (
     <NavigationContainer theme={theme}>

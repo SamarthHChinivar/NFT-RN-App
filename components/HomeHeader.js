@@ -16,12 +16,12 @@ const HomeHeader = ({ onSearch }) => {
           source={assets.logo}
           resizeMode="contain"
           style={{
-            width: 90,
-            height: 25,
+            width: 100,
+            height: 50,
           }}
         />
 
-        <View style={{ width: 45, height: 45 }}>
+        <View style={{ width: 50, height: 50 }}>
           <Image
             source={assets.person01}
             resizeMode="contain"
@@ -47,19 +47,19 @@ const HomeHeader = ({ onSearch }) => {
       <View style={{ marginVertical: SIZES.font }}>
         <Text
           style={{
-            fontFamily: FONTS.bold,
-            fontSize: SIZES.large,
+            fontFamily: FONTS.semiBold,
+            fontSize: SIZES.extraLarge,
             color: COLORS.white,
-            marginTop: SIZES.base / 2,
           }}
         >
           Hi Samarth 👋🏻
         </Text>
         <Text
           style={{
-            fontFamily: FONTS.regular,
-            fontSize: SIZES.small,
+            fontFamily: FONTS.medium,
+            fontSize: SIZES.medium,
             color: COLORS.white,
+            marginTop: SIZES.base / 2,
           }}
         >
           Let's Find a Masterpiece
@@ -71,7 +71,7 @@ const HomeHeader = ({ onSearch }) => {
           style={{
             width: "100%",
             borderRadius: SIZES.font,
-            backgroundColor: COLORS.gray,
+            backgroundColor: COLORS.secondary,
             flexDirection: "row",
             alignItems: "center",
             paddingHorizontal: SIZES.font,
@@ -84,12 +84,12 @@ const HomeHeader = ({ onSearch }) => {
             style={{
               width: 20,
               height: 20,
-              marginRight: SIZES.base,
+              marginRight: SIZES.small,
             }}
           />
           <TextInput
             placeholder="Search NFT's"
-            style={{ flex: 1 }}
+            style={{ flex: 1 , color: COLORS.white}}
             onChangeText={onSearch}
           />
         </View>
