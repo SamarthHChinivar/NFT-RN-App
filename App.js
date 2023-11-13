@@ -1,7 +1,8 @@
+import React from "react";
+import 'react-native-gesture-handler';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
 
 import Home from "./screens/Home";
 import Details from "./screens/Details";

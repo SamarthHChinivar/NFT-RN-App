@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#001F2D"
     },
-    "assetBundlePatterns": [
-      "assets/fonts"
-    ],
+    "assets": ["./assets/fonts/"],
     "ios": {
       "supportsTablet": true
     },
