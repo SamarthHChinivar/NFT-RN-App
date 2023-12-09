@@ -22,7 +22,7 @@ const Profile = () => {
       </View>
       <WebView
         style={{ flex: 1 }}
-        source={{ uri: "http://samarth-portfolio-website.000webhostapp.com" }}
+        source={{ uri: "https://samarth-portfolio-website.000webhostapp.com" }}
         //allows to open links in the webview itself
         setSupportMultipleWindows={false}
       />
