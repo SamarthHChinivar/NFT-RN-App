@@ -1,8 +1,11 @@
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { SIZES, FONTS, COLORS, assets } from "../constants";
 
 const HomeHeader = ({ onSearch }) => {
+  const navigation = useNavigation();
+
   return (
     <View style={{ backgroundColor: COLORS.primary, padding: SIZES.font }}>
       <View
@@ -22,14 +25,20 @@ const HomeHeader = ({ onSearch }) => {
         />
 
         <View style={{ width: 50, height: 50 }}>
-          <Image
-            source={assets.person01}
-            resizeMode="contain"
-            style={{
-              width: "100%",
-              height: "100%",
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Profile");
             }}
-          />
+          >
+            <Image
+              source={assets.person01}
+              resizeMode="contain"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </TouchableOpacity>
           <Image
             source={assets.badge}
             resizeMode="contain"
@@ -89,7 +98,7 @@ const HomeHeader = ({ onSearch }) => {
           />
           <TextInput
             placeholder="Search NFT's"
-            style={{ flex: 1 , color: COLORS.white}}
+            style={{ flex: 1, color: COLORS.white }}
             onChangeText={onSearch}
           />
         </View>
