@@ -2,6 +2,7 @@ import React from "react";
 import { WebView } from "react-native-webview";
 import { View, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Alert } from "react-native";
 
 import { CircleButton } from "../components";
 import { assets, COLORS } from "../constants";
@@ -25,6 +26,22 @@ const Profile = () => {
         source={{ uri: "https://samarth-portfolio-website.000webhostapp.com" }}
         //allows to open links in the webview itself
         setSupportMultipleWindows={false}
+        onError={() => {
+          Alert.alert(
+            "No Internet Connection",
+            "Please check your internet connection and try again.",
+            [
+              {
+                text: "OK",
+                onPress: () => {
+                  navigation.goBack();
+                },
+              },
+            ],
+            { cancelable: false }
+          );
+        }}
+        startInLoadingState={true}
       />
     </>
   );
