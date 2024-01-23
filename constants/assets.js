@@ -19,6 +19,8 @@ import person03 from "../assets/images/person03.png";
 import person04 from "../assets/images/person04.png";
 import person05 from "../assets/images/person05.png";
 
+import babyLoading from "../assets/images/baby-loading.jpg";
+
 export default {
   badge,
   eth,
@@ -40,4 +42,6 @@ export default {
   person03,
   person04,
   person05,
+
+  babyLoading,
 };

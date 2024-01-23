@@ -1,14 +1,50 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { WebView } from "react-native-webview";
-import { View, StatusBar } from "react-native";
+import { View, StatusBar, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Alert } from "react-native";
+import ProgressBar from "react-native-progress/Bar";
 
 import { CircleButton } from "../components";
-import { assets, COLORS } from "../constants";
+import { assets, COLORS, SIZES, FONTS } from "../constants";
 
 const Profile = () => {
   const navigation = useNavigation();
+  const [progress, setProgress] = useState(0);
+  const [renderWebView, setRenderWebView] = useState(false);
+  const webViewRenderRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      setRenderWebView(false);
+    };
+  }, []);
+
+  const Loading = () => {
+    return (
+      <View
+        style={{
+          alignContent: "center",
+          alignItems: "center",
+          marginBottom: StatusBar.currentHeight + 300,
+        }}
+      >
+        <Image
+          source={assets.babyLoading}
+          style={{ width: 300, height: 300, marginBottom: SIZES.medium }}
+        />
+        <Text
+          style={{
+            fontFamily: FONTS.medium,
+            fontSize: SIZES.medium,
+            marginTop: SIZES.base / 2,
+          }}
+        >
+          Hang On ⌛ ... We're Loading the Site for You 🚀
+        </Text>
+      </View>
+    );
+  };
 
   return (
     <>
@@ -21,18 +57,25 @@ const Profile = () => {
           top={StatusBar.currentHeight + 10}
         />
       </View>
+
+      {!renderWebView ? (
+        <ProgressBar
+          progress={progress}
+          color={"blue"}
+          borderWidth={0}
+          borderRadius={0}
+          animationType={"spring"}
+        />
+      ) : null}
+
       <WebView
-        style={{ flex: 1 }}
-        source={{ uri: "https://samarth-portfolio-website.000webhostapp.com" }}
-        //allows to open links in the webview itself
-        setSupportMultipleWindows={false}
         onError={() => {
           Alert.alert(
-            "No Internet Connection",
+            "Internet Disconnected ⚠️",
             "Please check your internet connection and try again.",
             [
               {
-                text: "OK",
+                text: "Go Back",
                 onPress: () => {
                   navigation.goBack();
                 },
@@ -41,7 +84,26 @@ const Profile = () => {
             { cancelable: false }
           );
         }}
+        ref={webViewRenderRef}
+        onLoad={() => {
+          setRenderWebView(false);
+        }}
+        //Destructuring the nativeEvent object in the below line:
+        onLoadProgress={({ nativeEvent }) => setProgress(nativeEvent.progress)}
+        onLoadEnd={() =>
+          setTimeout(() => {
+            setRenderWebView(true);
+          }, 750)
+        }
+        style={{ flex: 1 }}
+        source={{ uri: "https://samarth-portfolio-website.000webhostapp.com" }}
+        //allows to open links in the webview itself
+        setSupportMultipleWindows={false}
         startInLoadingState={true}
+        renderLoading={() => <Loading />}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        scalesPageToFit={true}
       />
     </>
   );
