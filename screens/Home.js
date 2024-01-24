@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, SafeAreaView, FlatList } from "react-native";
+import { View, SafeAreaView, FlatList, Image, Text } from "react-native";
 
-import { COLORS, NFTData } from "../constants";
+import { assets, COLORS, NFTData, FONTS, SIZES } from "../constants";
 import { FocusedStatusBar, NFTCard, HomeHeader } from "../components";
 
 const Home = () => {
@@ -17,10 +17,45 @@ const Home = () => {
     );
 
     if (filteredData.length === 0) {
-      setNftData(NFTData);
+      setNftData(null);
     } else {
       setNftData(filteredData);
     }
+  };
+
+  const NoDataComponent = () => {
+    return (
+      <>
+        <Image
+          source={assets.invalidSearch}
+          style={{ height: 450, width: -500 }}
+        />
+        <View style={{ backgroundColor: COLORS.secondary, flex: 6, paddingBottom:SIZES.large }}>
+          <Text
+            style={{
+              fontFamily: FONTS.semiBold,
+              fontSize: SIZES.extraLarge,
+              color: COLORS.primary,
+              alignSelf: "center",
+              marginTop: SIZES.large,
+            }}
+          >
+            No Data Found 😔 ...
+          </Text>
+          <Text
+            style={{
+              fontFamily: FONTS.semiBold,
+              fontSize: SIZES.extraLarge,
+              color: COLORS.primary,
+              alignSelf: "center",
+              marginTop: SIZES.medium,
+            }}
+          >
+            Invalid Search 🔍 ...
+          </Text>
+        </View>
+      </>
+    );
   };
 
   return (
@@ -49,6 +84,7 @@ const Home = () => {
           }}
         >
           <View style={{ height: 300, backgroundColor: COLORS.primary }} />
+          {!nftData && <NoDataComponent />}
           <View style={{ flex: 1, backgroundColor: COLORS.white }} />
         </View>
       </View>

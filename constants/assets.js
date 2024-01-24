@@ -20,6 +20,8 @@ import person04 from "../assets/images/person04.png";
 import person05 from "../assets/images/person05.png";
 
 import babyLoading from "../assets/images/baby-loading.jpg";
+import cancelButton from "../assets/images/cancel-button.png";
+import invalidSearch from "../assets/images/trump-search.jpg";
 
 export default {
   badge,
@@ -44,4 +46,6 @@ export default {
   person05,
 
   babyLoading,
+  cancelButton,
+  invalidSearch,
 };

@@ -40,7 +40,7 @@ const Profile = () => {
             marginTop: SIZES.base / 2,
           }}
         >
-          Hang On ⌛ ... We're Loading the Site for You 🚀
+          Hang On ⌛ ... We're Loading this Site for You 🚀
         </Text>
       </View>
     );

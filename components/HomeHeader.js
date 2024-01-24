@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -5,6 +6,7 @@ import { SIZES, FONTS, COLORS, assets } from "../constants";
 
 const HomeHeader = ({ onSearch }) => {
   const navigation = useNavigation();
+  const [searchText, setSearchText] = useState("");
 
   return (
     <View style={{ backgroundColor: COLORS.primary, padding: SIZES.font }}>
@@ -27,7 +29,9 @@ const HomeHeader = ({ onSearch }) => {
         <View style={{ width: 50, height: 50 }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Profile");
+              setTimeout(() => {
+                navigation.navigate("Profile");
+              }, 500);
             }}
           >
             <Image
@@ -99,8 +103,29 @@ const HomeHeader = ({ onSearch }) => {
           <TextInput
             placeholder="Search NFT's"
             style={{ flex: 1, color: COLORS.white }}
-            onChangeText={onSearch}
+            onChangeText={(text) => {
+              setSearchText(text);
+              onSearch(text);
+            }}
+            value={searchText}
           />
+          <TouchableOpacity
+            onPress={() => {
+              if (searchText) {
+                onSearch("");
+                setSearchText("");
+              }
+            }}
+          >
+            <Image
+              source={assets.cancelButton}
+              resizeMode="contain"
+              style={{
+                width: 20,
+                height: 20,
+              }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </View>

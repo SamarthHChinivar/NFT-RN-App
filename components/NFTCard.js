@@ -1,9 +1,10 @@
-import { View, Image, Text } from "react-native";
+import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton, RectButton } from "./Button";
 import { SubInfo, EthPrice, NFTTitle } from "./SubInfo";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const NFTCard = ({ data }) => {
   const navigation = useNavigation();
@@ -41,12 +42,16 @@ const NFTCard = ({ data }) => {
           padding: SIZES.font,
         }}
       >
-        <NFTTitle
-          title={data.name}
-          subTitle={data.creator}
-          titleSize={SIZES.extraLarge}
-          subTitleSize={SIZES.medium}
-        />
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate("Details", { data })}
+        >
+          <NFTTitle
+            title={data.name}
+            subTitle={data.creator}
+            titleSize={SIZES.extraLarge}
+            subTitleSize={SIZES.medium}
+          />
+        </TouchableWithoutFeedback>
 
         <View
           style={{
