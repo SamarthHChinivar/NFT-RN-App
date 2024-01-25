@@ -1,5 +1,12 @@
-import { useState } from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { useState, useEffect } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { SIZES, FONTS, COLORS, assets } from "../constants";
@@ -7,6 +14,24 @@ import { SIZES, FONTS, COLORS, assets } from "../constants";
 const HomeHeader = ({ onSearch }) => {
   const navigation = useNavigation();
   const [searchText, setSearchText] = useState("");
+  const [activity, setActivity] = useState(false);
+
+  const LoadActivity = ({ setActivity }) => {
+    // useEffect(() => {
+    //   const timeoutId = setTimeout(() => {
+    //     setActivity(false);
+    //   }, 750);
+
+    //   return () => {
+    //     clearTimeout(timeoutId);
+    //   };
+    // }, [setActivity]);
+    setTimeout(() => {
+      setActivity(false);
+    }, 750);
+
+    return <ActivityIndicator size="large" />;
+  };
 
   return (
     <View style={{ backgroundColor: COLORS.primary, padding: SIZES.font }}>
@@ -31,7 +56,7 @@ const HomeHeader = ({ onSearch }) => {
             onPress={() => {
               setTimeout(() => {
                 navigation.navigate("Profile");
-              }, 500);
+              }, 200);
             }}
           >
             <Image
@@ -106,6 +131,7 @@ const HomeHeader = ({ onSearch }) => {
             onChangeText={(text) => {
               setSearchText(text);
               onSearch(text);
+              setActivity(true);
             }}
             value={searchText}
           />
@@ -114,6 +140,9 @@ const HomeHeader = ({ onSearch }) => {
               if (searchText) {
                 onSearch("");
                 setSearchText("");
+              }
+              if (activity) {
+                setActivity(false);
               }
             }}
           >
@@ -127,6 +156,7 @@ const HomeHeader = ({ onSearch }) => {
             />
           </TouchableOpacity>
         </View>
+        {activity && <LoadActivity setActivity={setActivity} />}
       </View>
     </View>
   );

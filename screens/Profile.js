@@ -31,7 +31,12 @@ const Profile = () => {
       >
         <Image
           source={assets.babyLoading}
-          style={{ width: 300, height: 300, marginBottom: SIZES.medium }}
+          style={{
+            width: "90%",
+            height: "70%",
+            marginBottom: SIZES.medium,
+            marginTop: "35%",
+          }}
         />
         <Text
           style={{
@@ -40,7 +45,16 @@ const Profile = () => {
             marginTop: SIZES.base / 2,
           }}
         >
-          Hang On ⌛ ... We're Loading this Site for You 🚀
+          Hang On ⌛ ...
+        </Text>
+        <Text
+          style={{
+            fontFamily: FONTS.medium,
+            fontSize: SIZES.medium,
+            marginTop: SIZES.base / 2,
+          }}
+        >
+          We're Loading this Site for You 🚀 ...
         </Text>
       </View>
     );
@@ -86,7 +100,8 @@ const Profile = () => {
         }}
         ref={webViewRenderRef}
         onLoad={() => {
-          setRenderWebView(false);
+          <Loading />;
+          if (renderWebView) setRenderWebView(false);
         }}
         //Destructuring the nativeEvent object in the below line:
         onLoadProgress={({ nativeEvent }) => setProgress(nativeEvent.progress)}
