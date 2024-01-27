@@ -2,7 +2,7 @@
   "expo": {
     "name": "NFTs",
     "slug": "NFTs",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/icons/icon.png",
     "userInterfaceStyle": "light",
