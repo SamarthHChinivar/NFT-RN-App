@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Toast from "react-native-toast-message";
 
 import { SIZES, FONTS, COLORS, assets } from "../constants";
 
@@ -61,14 +62,24 @@ const HomeHeader = ({ onSearch }) => {
           alignItems: "center",
         }}
       >
-        <Image
-          source={assets.logo}
-          resizeMode="contain"
-          style={{
-            width: 100,
-            height: 50,
-          }}
-        />
+        <TouchableOpacity onPress={()=>{
+          Toast.show({
+            type: "versionToast",
+            text1: "v1.0.2 🏷️",
+            position: "top",
+            swipeable: true,
+            visibilityTime: 2000,
+          });
+        }}>
+          <Image
+            source={assets.logo}
+            resizeMode="contain"
+            style={{
+              width: 100,
+              height: 50,
+            }}
+          />
+        </TouchableOpacity>
 
         <View style={{ width: 50, height: 50 }}>
           <TouchableOpacity

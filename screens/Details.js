@@ -85,7 +85,7 @@ const Details = ({ route, navigation }) => {
               text2: "Stay Tuned 🔜 ...",
               position: "bottom",
               swipeable: true,
-              visibilityTime: 1750,
+              visibilityTime: 1800,
             });
           }}
           fontSize={SIZES.large}
