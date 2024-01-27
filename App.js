@@ -44,7 +44,7 @@ const App = () => {
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
       </NavigationContainer>
-      <Toast config={toastConfig} ref={(ref)=>Toast.setRef(ref)} />
+      <Toast config={toastConfig} />
     </>
   );
 };

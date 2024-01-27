@@ -5,14 +5,14 @@ import { COLORS, FONTS, SIZES } from "../constants";
 
 const toastConfig = {
   heartToast: ({ text1, text2, ...rest }) => (
-    <View style={{ height: 50, backgroundColor: "#FFB6C1", padding: 16 }}>
+    <View style={{ height: 50, backgroundColor: "#FFB6C1", padding: 12 }}>
       <Text style={{ color: "#000080" }}>{text1}</Text>
       <Text style={{ color: "white" }}>{text2}</Text>
     </View>
   ),
 
   bidToast: ({ text1, text2, ...rest }) => (
-    <View style={{ height: 90, backgroundColor: "#F0FFFF", padding: 24 }}>
+    <View style={{ height: 90, backgroundColor: "#F0FFFF", padding: 12 }}>
       <Text
         style={{
           color: COLORS.primary,
@@ -43,8 +43,8 @@ const toastConfig = {
       style={{
         height: 50,
         backgroundColor: "#F0FFFF",
-        padding: 16,
-        marginRight: 280,
+        padding: 12,
+        marginRight: 200,
         marginTop: -16,
       }}
     >

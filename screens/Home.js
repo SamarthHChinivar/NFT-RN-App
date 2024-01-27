@@ -28,9 +28,9 @@ const Home = () => {
       <>
         <Image
           source={assets.invalidSearch}
-          style={{ height: 450, width: -500 }}
+          style={{ height: 450, width: -450 }}
         />
-        <View style={{ backgroundColor: COLORS.secondary, flex: 6, paddingBottom:SIZES.large }}>
+        <View style={{ backgroundColor: COLORS.secondary, flex: 4, paddingBottom:SIZES.large }}>
           <Text
             style={{
               fontFamily: FONTS.semiBold,
@@ -83,7 +83,7 @@ const Home = () => {
             zIndex: -1,
           }}
         >
-          <View style={{ height: 300, backgroundColor: COLORS.primary }} />
+          <View style={{ height: 225, backgroundColor: COLORS.primary }} />
           {!nftData && <NoDataComponent />}
           <View style={{ flex: 1, backgroundColor: COLORS.white }} />
         </View>
