@@ -16,21 +16,40 @@ const HomeHeader = ({ onSearch }) => {
   const [searchText, setSearchText] = useState("");
   const [activity, setActivity] = useState(false);
 
+  useEffect(() => {
+    // navigation.addListener re-renders whenver user navigates to this screen
+    const onFocusListener = navigation.addListener("focus", () => {
+      setTimeout(() => {
+        setActivity(true);
+      }, 750);
+    });
+
+    return () => {
+      onFocusListener();
+    };
+  }, []);
+
+  console.log("activity >>", activity);
+
   const LoadActivity = ({ setActivity }) => {
-    // useEffect(() => {
-    //   const timeoutId = setTimeout(() => {
-    //     setActivity(false);
-    //   }, 750);
+    useEffect(() => {
+      const timeoutId = setTimeout(() => {
+        setActivity(false);
+      }, 750);
 
-    //   return () => {
-    //     clearTimeout(timeoutId);
-    //   };
-    // }, [setActivity]);
-    setTimeout(() => {
-      setActivity(false);
-    }, 750);
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }, [setActivity]);
 
-    return <ActivityIndicator size="large" />;
+    return (
+      <ActivityIndicator
+        style={{
+          marginTop: "4%",
+        }}
+        size="large"
+      />
+    );
   };
 
   return (
@@ -140,9 +159,7 @@ const HomeHeader = ({ onSearch }) => {
               if (searchText) {
                 onSearch("");
                 setSearchText("");
-              }
-              if (activity) {
-                setActivity(false);
+                setActivity(true);
               }
             }}
           >

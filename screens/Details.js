@@ -7,6 +7,8 @@ import {
   StatusBar,
   FlatList,
 } from "react-native";
+import Toast from "react-native-toast-message";
+
 import { COLORS, SIZES, FONTS, SHADOWS, assets } from "../constants";
 import {
   CircleButton,
@@ -34,6 +36,15 @@ const DetailsHeader = ({ data, navigation }) => (
 
     <CircleButton
       imgUrl={assets.heart}
+      handlePress={() => {
+        Toast.show({
+          type: "heartToast",
+          text1: "Thanks for Liking ❤️",
+          position: "top",
+          swipeable: true,
+          visibilityTime: 1750,
+        });
+      }}
       right={15}
       top={StatusBar.currentHeight + 10}
     />
@@ -43,9 +54,7 @@ const DetailsHeader = ({ data, navigation }) => (
 const Details = ({ route, navigation }) => {
   const { data } = route.params;
 
-  console.log("----------------------");
   console.log("data from prev screen => ", data.bids);
-  console.log("----------------------");
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -67,7 +76,21 @@ const Details = ({ route, navigation }) => {
           zIndex: 1,
         }}
       >
-        <RectButton minWidth={170} fontSize={SIZES.large} {...SHADOWS.dark} />
+        <RectButton
+          minWidth={170}
+          handlePress={() => {
+            Toast.show({
+              type: "bidToast",
+              text1: "Functionality yet to be added 🚧 ...",
+              text2: "Stay Tuned 🔜 ...",
+              position: "bottom",
+              swipeable: true,
+              visibilityTime: 1750,
+            });
+          }}
+          fontSize={SIZES.large}
+          {...SHADOWS.dark}
+        />
       </View>
 
       <FlatList

@@ -100,7 +100,6 @@ const Profile = () => {
         }}
         ref={webViewRenderRef}
         onLoad={() => {
-          <Loading />;
           if (renderWebView) setRenderWebView(false);
         }}
         //Destructuring the nativeEvent object in the below line:

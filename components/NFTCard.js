@@ -1,5 +1,6 @@
 import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Toast from "react-native-toast-message";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton, RectButton } from "./Button";
@@ -31,7 +32,20 @@ const NFTCard = ({ data }) => {
           }}
         />
 
-        <CircleButton imgUrl={assets.heart} right={10} top={10} />
+        <CircleButton
+          imgUrl={assets.heart}
+          handlePress={() => {
+            Toast.show({
+              type: "heartToast",
+              text1: "Thanks for Liking ❤️",
+              position: "top",
+              swipeable: true,
+              visibilityTime: 1750,
+            });
+          }}
+          right={10}
+          top={10}
+        />
       </View>
 
       <SubInfo />
