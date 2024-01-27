@@ -116,7 +116,7 @@ const Profile = () => {
         startInLoadingState={true}
         renderLoading={() => <Loading />}
         javaScriptEnabled={true}
-        domStorageEnabled={true}
+        domStorageEnabled={false}
         scalesPageToFit={true}
       />
     </>
